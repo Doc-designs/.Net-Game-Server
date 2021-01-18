@@ -177,6 +177,7 @@ namespace GameServer
             public void Connect(IPEndPoint _endPoint)
             {
                 endPoint = _endPoint;
+                ServerSend.UDPTest(id);
             }
 
             /// <summary>Sends data to the client via UDP.</summary>

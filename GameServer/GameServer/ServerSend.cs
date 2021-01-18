@@ -89,13 +89,23 @@ namespace GameServer
             }
         }
 
+        public static void UDPTest(int _toClient)
+        {
+            using (Packet _packet = new Packet((int)ServerPackets.udpTest))
+            {
+                _packet.Write("A test packet for UDP.");
+
+                SendUDPData(_toClient, _packet);
+            }
+        }
+
         /// <summary>Tells a client to spawn a player.</summary>
         /// <param name="_toClient">The client that should spawn the player.</param>
         /// <param name="_player">The player to spawn.</param>
         public static void SpawnPlayer(int _toClient, Player _player)
         {
             using (Packet _packet = new Packet((int)ServerPackets.spawnPlayer))
-            {
+           {
                 _packet.Write(_player.id);
                 _packet.Write(_player.username);
                 _packet.Write(_player.position);
@@ -113,7 +123,7 @@ namespace GameServer
             {
                 _packet.Write(_player.id);
                 _packet.Write(_player.position);
-
+            
                 SendUDPDataToAll(_packet);
             }
         }
