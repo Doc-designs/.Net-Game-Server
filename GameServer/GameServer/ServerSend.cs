@@ -73,6 +73,13 @@ namespace GameServer
                 }
             }
         }
+        /*
+            using (Packet _packet = new Packet((int)ServerPackets.udpTest))
+            {
+                _packet.Write("A test packet for UDP.");
+
+                SendUDPData(_toClient, _packet);
+    */
 
         #region Packets
         /// <summary>Sends a welcome message to the given client.</summary>
@@ -86,16 +93,6 @@ namespace GameServer
                 _packet.Write(_toClient);
 
                 SendTCPData(_toClient, _packet);
-            }
-        }
-
-        public static void UDPTest(int _toClient)
-        {
-            using (Packet _packet = new Packet((int)ServerPackets.udpTest))
-            {
-                _packet.Write("A test packet for UDP.");
-
-                SendUDPData(_toClient, _packet);
             }
         }
 

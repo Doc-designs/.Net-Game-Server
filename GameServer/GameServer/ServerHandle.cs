@@ -20,6 +20,7 @@ namespace GameServer
             Server.clients[_fromClient].SendIntoGame(_username);
         }
 
+
         public static void PlayerMovement(int _fromClient, Packet _packet)
         {
             bool[] _inputs = new bool[_packet.ReadInt()];

@@ -177,7 +177,6 @@ namespace GameServer
             public void Connect(IPEndPoint _endPoint)
             {
                 endPoint = _endPoint;
-                ServerSend.UDPTest(id);
             }
 
             /// <summary>Sends data to the client via UDP.</summary>
@@ -229,7 +228,7 @@ namespace GameServer
                 }
             }
 
-            // Send the new player to all players (including himself)
+            // Send the new player to all players (including their self)
             foreach (Client _client in Server.clients.Values)
             {
                 if (_client.player != null)
